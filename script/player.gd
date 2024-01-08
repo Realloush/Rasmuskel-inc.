@@ -47,11 +47,13 @@ func apply_gravity(delta):
 func _process(delta):
 	
 	if Input.is_action_just_pressed("ui_right"):
-		direction_facing = 1
+
+		$Sprite2D.flip_h = true
 	if Input.is_action_just_pressed("ui_left"):
-		direction_facing = -1
+
+		$Sprite2D.flip_h = false
 	# Double Jump
-	if Input.is_action_just_pressed("ui_accept") and not is_on_floor() and is_wall_sliding == false and can_double_jump == true and dash.is_dashing() == false:
+	if Input.is_action_just_pressed("ui_accept") and not is_on_floor() and not is_wall_sliding and can_double_jump and not dash.is_dashing():
 		velocity.y = double_jump_velocity
 		can_double_jump = false
 		gravity = 2100
@@ -80,11 +82,11 @@ func _process(delta):
 
 func handle_dashing():
 		# Dash
-	if Input.is_action_just_pressed("shift") and can_dash == true and dash_cooldown.time_left == 0:
+	if Input.is_action_just_pressed("shift") and can_dash and dash_cooldown.time_left == 0:
 		dash.start_dash(dashlenght)
 		can_dash = false
 		dash_cooldown.start()
-	if dash.is_dashing() == true:
+	if dash.is_dashing():
 		velocity.y = 0
 		velocity.x = dashspeed * direction_facing
 		
@@ -179,7 +181,7 @@ func _physics_process(delta):
 	print(is_wall_jumping_left)
 	# Moving Left and Right
 	var direction = Input.get_axis("ui_left", "ui_right")
-	if direction and not dash.is_dashing() and can_move == true:
+	if direction and not dash.is_dashing() and can_move:
 		velocity.x =  normal_speed * direction 
 	else:
 		velocity.x = move_toward(velocity.x, 0, normal_speed)
