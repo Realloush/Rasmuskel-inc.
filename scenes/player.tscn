@@ -1,0 +1,59 @@
+[gd_scene load_steps=5 format=3 uid="uid://l0fxfqthulja"]
+
+[ext_resource type="Script" path="res://script/player.gd" id="1_1ib87"]
+[ext_resource type="Texture2D" uid="uid://cwoccg0fv5iof" path="res://art/random/player.png" id="2_k7hg8"]
+[ext_resource type="PackedScene" uid="uid://br42fr67kbxoy" path="res://scenes/dash.tscn" id="4_181fv"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_j1mtu"]
+size = Vector2(16, 32.0938)
+
+[node name="player" type="CharacterBody2D"]
+scale = Vector2(4, 4)
+disable_mode = 1
+script = ExtResource("1_1ib87")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(8, 16.0469)
+shape = SubResource("RectangleShape2D_j1mtu")
+
+[node name="CoyoteJumpTimer" type="Timer" parent="."]
+wait_time = 0.08
+one_shot = true
+
+[node name="JumpBuffer" type="Timer" parent="."]
+wait_time = 0.09
+one_shot = true
+
+[node name="RayCast2D2" type="RayCast2D" parent="."]
+position = Vector2(16, 30)
+target_position = Vector2(2, 0)
+
+[node name="RayCast2D4" type="RayCast2D" parent="."]
+position = Vector2(0, 2)
+target_position = Vector2(-2, 0)
+
+[node name="Dash" parent="." instance=ExtResource("4_181fv")]
+
+[node name="DashCooldown" type="Timer" parent="."]
+wait_time = 0.4
+one_shot = true
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(8, 16)
+scale = Vector2(2, 2)
+texture = ExtResource("2_k7hg8")
+
+[node name="Wall_jump" type="Timer" parent="."]
+wait_time = 0.15
+one_shot = true
+
+[node name="RayCast2D3" type="RayCast2D" parent="."]
+position = Vector2(16, 2)
+target_position = Vector2(2, 0)
+
+[node name="RayCast2D" type="RayCast2D" parent="."]
+position = Vector2(0, 30)
+target_position = Vector2(-2, 0)
+
+[node name="WallJumpLerp" type="Timer" parent="."]
+wait_time = 0.25

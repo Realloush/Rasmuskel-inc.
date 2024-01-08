@@ -1,0 +1,75 @@
+[gd_scene load_steps=7 format=3 uid="uid://l0fxfqthulja"]
+
+[ext_resource type="Script" path="res://script/player.gd" id="1_1ib87"]
+[ext_resource type="Texture2D" uid="uid://cwoccg0fv5iof" path="res://art/random/player.png" id="2_k7hg8"]
+[ext_resource type="PackedScene" uid="uid://br42fr67kbxoy" path="res://scenes/dash.tscn" id="4_181fv"]
+
+[sub_resource type="GDScript" id="GDScript_2bpxv"]
+script/source = "extends  Resource
+class_name  PlayerMovementData
+
+@export var normal_speed = 500.0
+@export var jump_velocity = -1000.0
+@export var double_jump_velocity = -900.0
+@export var friction = 8000.0
+@export var acceleration = 9000.0
+@export var wall_jump_velocity = -1000.0
+@export var air_resistence = 8000.0
+@export var wall_jump_horizontal_speed = 800.0
+
+"
+
+[sub_resource type="Resource" id="Resource_vat4j"]
+script = SubResource("GDScript_2bpxv")
+normal_speed = null
+jump_velocity = null
+double_jump_velocity = null
+friction = null
+acceleration = null
+wall_jump_velocity = null
+air_resistence = null
+wall_jump_horizontal_speed = null
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_j1mtu"]
+size = Vector2(16, 32.0938)
+
+[node name="player" type="CharacterBody2D"]
+scale = Vector2(4, 4)
+disable_mode = 1
+script = ExtResource("1_1ib87")
+movement_data = SubResource("Resource_vat4j")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(8, 16.0469)
+shape = SubResource("RectangleShape2D_j1mtu")
+
+[node name="CoyoteJumpTimer" type="Timer" parent="."]
+wait_time = 0.06
+one_shot = true
+
+[node name="JumpBuffer" type="Timer" parent="."]
+wait_time = 0.09
+one_shot = true
+
+[node name="RayCast2D" type="RayCast2D" parent="."]
+position = Vector2(0, 30)
+target_position = Vector2(-2, 0)
+
+[node name="RayCast2D2" type="RayCast2D" parent="."]
+position = Vector2(16, 30)
+target_position = Vector2(2, 0)
+
+[node name="Dash" parent="." instance=ExtResource("4_181fv")]
+
+[node name="DashCooldown" type="Timer" parent="."]
+wait_time = 0.4
+one_shot = true
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(8, 16)
+scale = Vector2(2, 2)
+texture = ExtResource("2_k7hg8")
+
+[node name="Wall_jump" type="Timer" parent="."]
+wait_time = 0.15
+one_shot = true

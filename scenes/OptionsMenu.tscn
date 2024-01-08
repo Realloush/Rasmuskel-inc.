@@ -1,0 +1,74 @@
+[gd_scene load_steps=7 format=3 uid="uid://dah83vovco61c"]
+
+[ext_resource type="Script" path="res://script/OptionsMenu.gd" id="1_6we71"]
+[ext_resource type="Texture2D" uid="uid://bgi1ltjs6riql" path="res://art/Background/Brown.png" id="2_8btql"]
+[ext_resource type="FontFile" uid="uid://b4qju5uea5op4" path="res://art/font/pxlxxlcond.ttf" id="2_oq2f4"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_y76fl"]
+bg_color = Color(0, 0, 0, 0.592157)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_sjjc7"]
+bg_color = Color(0, 0, 0, 0.380392)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rgdtl"]
+bg_color = Color(0, 0, 0, 0.556863)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[node name="OptionsMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_6we71")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 0
+offset_right = 2066.0
+offset_bottom = 1136.0
+texture = ExtResource("2_8btql")
+stretch_mode = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 0
+offset_right = 1920.0
+offset_bottom = 1080.0
+
+[node name="Label" type="Label" parent="MarginContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_oq2f4")
+theme_override_font_sizes/font_size = 210
+text = "Button in development..."
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="MarginContainer2" type="MarginContainer" parent="."]
+layout_mode = 0
+offset_right = 401.0
+offset_bottom = 146.0
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+
+[node name="Back" type="Button" parent="MarginContainer2"]
+layout_mode = 2
+focus_mode = 0
+theme_override_fonts/font = ExtResource("2_oq2f4")
+theme_override_font_sizes/font_size = 120
+theme_override_styles/normal = SubResource("StyleBoxFlat_y76fl")
+theme_override_styles/hover = SubResource("StyleBoxFlat_sjjc7")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_rgdtl")
+text = "Back"
+
+[connection signal="pressed" from="MarginContainer2/Back" to="." method="_on_back_pressed"]
