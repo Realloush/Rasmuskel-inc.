@@ -13,8 +13,6 @@ extends CharacterBody2D
 @onready var wall_jump_lerp_timer = $WallJumpLerp
 
 
-
-
 var gravity = 1800
 var is_wall_sliding = false
 var can_double_jump = true
@@ -29,25 +27,22 @@ var friction = 8000.0
 var acceleration = 9000.0
 var wall_jump_velocity = -1100.0
 var air_resistence = 8000.0
-var wall_jump_horizontal_speed = 2000.0
+var wall_jump_horizontal_speed = 700.0
 var direction_facing = 1
 var dashspeed = 1750
 var dashlenght = 0.2
 var is_wall_sliding_right = false
 var is_wall_sliding_left = false
 
-func apply_gravity(delta):
-	if not is_on_floor():
-		velocity.y += gravity * delta
-		
-		
-	
-	
+var moving = {"left":false, "right":false}
+
+func _input(event):
+	if event is InputEventKey:
+		if Input.is_action_pressed("ui_accept"):
+			pass
 
 func _process(delta):
 	pass
-	
-
 func handle_dashing():
 		# Dash
 	if Input.is_action_just_pressed("shift") and can_dash and dash_cooldown.time_left == 0:
@@ -57,7 +52,6 @@ func handle_dashing():
 	if dash.is_dashing():
 		velocity.y = 0
 		velocity.x = dashspeed * direction_facing
-		
 func handle_wall_slide():
 		# Wall Sliding
 	if is_on_floor():
@@ -85,7 +79,6 @@ func handle_wall_slide():
 		can_dash = true
 		is_wall_jumping_right = false
 		is_wall_jumping_left = false
-
 func handle_wall_jump():
 	
 	if not is_on_wall():
@@ -114,19 +107,14 @@ func coyote_jump():
 	var just_left_ledge = was_on_floor and not is_on_floor() and velocity.y >= 0
 	if just_left_ledge:
 		coyote_jump_timer.start()
+
 func _physics_process(delta):
-	
 	if wall_jump_timer.time_left <= 0:
 		wall_jump_timer.stop()
 		can_move = true
 		is_wall_jumping_left = false
 		is_wall_jumping_right = false
-	if Input.is_action_just_pressed("ui_right"):
-
-		$Sprite2D.flip_h = true
-	if Input.is_action_just_pressed("ui_left"):
-
-		$Sprite2D.flip_h = false
+	
 	# Double Jump
 	if Input.is_action_just_pressed("ui_accept") and not is_on_floor() and not is_wall_sliding and can_double_jump and not dash.is_dashing():
 		velocity.y = double_jump_velocity
@@ -144,29 +132,23 @@ func _physics_process(delta):
 		gravity = 2000
 		can_double_jump = true
 		can_dash = true
-	
 		
 	# Jump height
 	if Input.is_action_just_released("ui_accept") and not velocity.y > -30:
 		gravity = 9000
 		
-		
 	# Falling speed limit
 	if velocity.y >1500:
 		velocity.y = 1500
+		
+	if not is_on_floor():
+		velocity.y += gravity * delta
+		
 	handle_dashing()
 	handle_wall_slide()
 	handle_wall_jump()
-	
-	apply_gravity(delta)
 	coyote_jump()
-	
-		
-	
-		
-	
 
-		
 	# Jump and Buffer Jump
 	if Input.is_action_just_pressed("ui_accept") and not dash.is_dashing():
 		if is_on_floor() or coyote_jump_timer.time_left > 0.0:
@@ -177,9 +159,31 @@ func _physics_process(delta):
 	if is_on_floor() and jump_buffer.time_left > 0:
 		jump_buffer.stop()
 	# Moving Left and Right
-	var direction = Input.get_axis("ui_left", "ui_right")
+	if Input.is_action_pressed("ui_right"):
+		direction_facing = 1
+		$Sprite2D.flip_h = true
+		moving["right"] = true
+		moving["left"] = false
+		
+	elif Input.is_action_pressed("ui_left"):
+		direction_facing = -1
+		$Sprite2D.flip_h = false
+		moving["left"] = true
+		moving["right"] = false
+	else:
+		moving["left"] = false
+		moving["right"] = false
+	
+	var direction = 0
+	if moving["right"]:
+		direction = 1
+	elif moving["left"]:
+		direction = -1
+	else:
+		direction = 0
+	
 	if direction and not dash.is_dashing() and can_move:
-		velocity.x =  normal_speed * direction 
+		velocity.x =  normal_speed * direction
 	else:
 		velocity.x = move_toward(velocity.x, 0, normal_speed)
 
