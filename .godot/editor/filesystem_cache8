@@ -1,0 +1,81 @@
+ea4bc82a6ad023ab7ee23ee620429895
+::res://::1708802407
+CharacterBody2D.gd::GDScript::-1::1708802285::0::1::::<>CharacterBody2D<>::
+export_presets.cfg::TextFile::-1::1708802285::0::1::::<><>::
+::res://art/::1708802285
+::res://art/Background/::1708802285
+Blue.png::CompressedTexture2D::6088542190964211531::1708802285::1708802408::1::::<><>::
+Brown.png::CompressedTexture2D::2825668065805489987::1708802285::1708802408::1::::<><>::
+Gray.png::CompressedTexture2D::8323949636606895862::1708802285::1708802408::1::::<><>::
+Green.png::CompressedTexture2D::3082704160020830771::1708802285::1708802408::1::::<><>::
+Pink.png::CompressedTexture2D::1160085434181372678::1708802285::1708802408::1::::<><>::
+Purple.png::CompressedTexture2D::5883908554339247008::1708802285::1708802408::1::::<><>::
+Yellow.png::CompressedTexture2D::1674955654298315498::1708802285::1708802408::1::::<><>::
+::res://art/font/::1708802285
+Italipixel.ttf::FontFile::8144764309285789066::1708802285::1708802408::1::::<><>::
+Merriweather-Regular.ttf::FontFile::383449770291026380::1708802285::1708802408::1::::<><>::
+Mister Pixel Regular.otf::FontFile::4984411271309648153::1708802285::1708802408::1::::<><>::
+OpenSansPX.ttf::FontFile::3945012045040166589::1708802285::1708802408::1::::<><>::
+pxlxxlcond.ttf::FontFile::4455510968853522883::1708802285::1708802408::1::::<><>::
+RobotoCondensed-Bold.ttf::FontFile::3422608454374958368::1708802285::1708802408::1::::<><>::
+::res://art/Items/::1708802285
+::res://art/Items/Boxes/::1708802285
+::res://art/Items/Boxes/Box1/::1708802285
+Break.png::CompressedTexture2D::539137320057153747::1708802285::1708802408::1::::<><>::
+Hit (28x24).png::CompressedTexture2D::3265430758409714358::1708802285::1708802408::1::::<><>::
+Idle.png::CompressedTexture2D::7862479014596005978::1708802285::1708802408::1::::<><>::
+::res://art/Items/Boxes/Box2/::1708802285
+Break.png::CompressedTexture2D::6605112668110105710::1708802285::1708802408::1::::<><>::
+Hit (28x24).png::CompressedTexture2D::5758002142595962956::1708802285::1708802408::1::::<><>::
+Idle.png::CompressedTexture2D::3372859962266809900::1708802285::1708802408::1::::<><>::
+::res://art/Items/Boxes/Box3/::1708802285
+Break.png::CompressedTexture2D::9122023011134780703::1708802285::1708802408::1::::<><>::
+Hit (28x24).png::CompressedTexture2D::8013138333113520345::1708802285::1708802408::1::::<><>::
+Idle.png::CompressedTexture2D::336495937687707400::1708802285::1708802408::1::::<><>::
+::res://art/Items/Checkpoints/::1708802285
+::res://art/Items/Checkpoints/Checkpoint/::1708802285
+Checkpoint (Flag Idle)(64x64).png::CompressedTexture2D::3888965918967697120::1708802285::1708802408::1::::<><>::
+Checkpoint (Flag Out) (64x64).png::CompressedTexture2D::5995199206882938307::1708802285::1708802408::1::::<><>::
+Checkpoint (No Flag).png::CompressedTexture2D::1285812289342031539::1708802285::1708802408::1::::<><>::
+::res://art/Items/Checkpoints/End/::1708802285
+End (Idle).png::CompressedTexture2D::4462623470116430345::1708802285::1708802408::1::::<><>::
+End (Pressed) (64x64).png::CompressedTexture2D::1560450206434321837::1708802285::1708802408::1::::<><>::
+::res://art/Items/Checkpoints/Start/::1708802285
+Start (Idle).png::CompressedTexture2D::6985574278182897730::1708802285::1708802408::1::::<><>::
+Start (Moving) (64x64).png::CompressedTexture2D::5553383020165094735::1708802285::1708802408::1::::<><>::
+::res://art/Items/Fruits/::1708802285
+Apple.png::CompressedTexture2D::772053652534707460::1708802285::1708802408::1::::<><>::
+Bananas.png::CompressedTexture2D::1676183698692755385::1708802285::1708802408::1::::<><>::
+Cherries.png::CompressedTexture2D::5612946795657961513::1708802285::1708802408::1::::<><>::
+Collected.png::CompressedTexture2D::3887377856439394693::1708802285::1708802408::1::::<><>::
+Kiwi.png::CompressedTexture2D::1496559245308188914::1708802285::1708802408::1::::<><>::
+Melon.png::CompressedTexture2D::8024023590463156009::1708802285::1708802408::1::::<><>::
+Orange.png::CompressedTexture2D::3454804962711189283::1708802285::1708802408::1::::<><>::
+Pineapple.png::CompressedTexture2D::2586451532300788037::1708802285::1708802408::1::::<><>::
+Strawberry.png::CompressedTexture2D::8047458801109653353::1708802285::1708802408::1::::<><>::
+::res://art/Other/::1708802285
+Confetti (16x16).png::CompressedTexture2D::7333060969825599049::1708802285::1708802408::1::::<><>::
+Dust Particle.png::CompressedTexture2D::252740495921078375::1708802285::1708802408::1::::<><>::
+Shadow.png::CompressedTexture2D::4520628366911482553::1708802285::1708802408::1::::<><>::
+Transition.png::CompressedTexture2D::4530101998429634146::1708802285::1708802408::1::::<><>::
+::res://art/random/::1708802285
+320x180.png::CompressedTexture2D::7043990927422077564::1708802285::1708802408::1::::<><>::
+attack.png::CompressedTexture2D::8548570854099103661::1708802285::1708802408::1::::<><>::
+f7e0011050e0b8aebe76aec2cc2989bb.png::CompressedTexture2D::3252253385053348165::1708802285::1708802408::1::::<><>::
+player.png::CompressedTexture2D::6346022575569734433::1708802285::1708802408::1::::<><>::
+::res://art/TileMap/::1708802285
+Tiles-and-Enemies.png::CompressedTexture2D::1466850468371900413::1708802285::1708802408::1::::<><>::
+::res://scenes/::1708802285
+dash.tscn::PackedScene::3641147210434856760::1708802285::0::1::::<><>::res://script/dash.gd
+MainGame.tscn::PackedScene::1294347545241240548::1708802285::0::1::::<><>::res://script/MainGame.gd<>uid://l0fxfqthulja::::res://scenes/player.tscn<>uid://u5s2vynu5e2h::::res://art/TileMap/Tiles-and-Enemies.png
+MainMenu.tscn::PackedScene::4195048955568859476::1708802285::0::1::::<><>::res://script/MainMenu.gd<>uid://b4qju5uea5op4::::res://art/font/pxlxxlcond.ttf<>uid://bgi1ltjs6riql::::res://art/Background/Brown.png
+OptionsMenu.tscn::PackedScene::7175767483923370402::1708802285::0::1::::<><>::res://script/OptionsMenu.gd<>uid://bgi1ltjs6riql::::res://art/Background/Brown.png<>uid://b4qju5uea5op4::::res://art/font/pxlxxlcond.ttf
+player.tscn::PackedScene::824031670300543438::1708802285::0::1::::<><>::res://script/player.gd<>uid://cwoccg0fv5iof::::res://art/random/player.png<>uid://br42fr67kbxoy::::res://scenes/dash.tscn
+::res://script/::1708802285
+Camera2D.gd::GDScript::-1::1708802285::0::1::::<>Camera2D<>::
+CharacterBody2D.gd::GDScript::-1::1708802285::0::1::::<>CharacterBody2D<>::
+dash.gd::GDScript::-1::1708802285::0::1::::<>Node2D<>::
+MainGame.gd::GDScript::-1::1708802285::0::1::::<>Node2D<>::
+MainMenu.gd::GDScript::-1::1708802285::0::1::::<>Control<>::
+OptionsMenu.gd::GDScript::-1::1708802285::0::1::::<>Control<>::
+player.gd::GDScript::-1::1708802285::0::1::::<>CharacterBody2D<>::
