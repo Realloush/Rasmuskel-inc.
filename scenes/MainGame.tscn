@@ -1876,10 +1876,6 @@ sources/3 = SubResource("TileSetAtlasSource_r1552")
 [node name="MainGame" type="Node2D"]
 script = ExtResource("1_8fej6")
 
-[node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2(1280, 767)
-position_smoothing_speed = 15.0
-
 [node name="TileMap" type="TileMap" parent="."]
 scale = Vector2(8, 8)
 tile_set = SubResource("TileSet_8qvve")
@@ -1888,3 +1884,9 @@ layer_0/tile_data = PackedInt32Array(1310722, 131075, 2, 1310724, 3, 5, 1310723,
 
 [node name="CharacterBody2D" parent="." instance=ExtResource("2_hqgjg")]
 position = Vector2(1285, 821)
+
+[node name="Camera2D" type="Camera2D" parent="CharacterBody2D"]
+position = Vector2(-1.25, -13.5)
+scale = Vector2(0.25, 0.25)
+position_smoothing_enabled = true
+position_smoothing_speed = 3.0

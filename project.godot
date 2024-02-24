@@ -10,7 +10,7 @@ config_version=5
 
 [application]
 
-config/name="SASDSA"
+config/name="V4"
 run/main_scene="res://scenes/MainMenu.tscn"
 config/features=PackedStringArray("4.2", "Mobile")
 boot_splash/show_image=false
