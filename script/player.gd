@@ -23,7 +23,7 @@ var double_jump_velocity = -1150
 var can_double_jump = true
 
 #Wall Jump
-const wall_jump_pushback = 1500
+const wall_jump_pushback = 4000
 const wall_jump_velocity = Vector2(900, -1500)
 var can_walljump = false
 var is_wall_jumping = false
@@ -55,10 +55,10 @@ func _physics_process(delta):
 	
 	
 	if Input.is_action_just_pressed("ui_right"):
-		
+		direction_facing = -1
 		$Sprite2D.flip_h = true
 	if Input.is_action_just_pressed("ui_left"):
-		
+		direction_facing = 1
 		$Sprite2D.flip_h = false
 	# Double Jump
 	#if Input.is_action_just_pressed("ui_accept") and not is_on_floor() and can_double_jump:
@@ -103,6 +103,7 @@ func _physics_process(delta):
 	coyote_jump()
 	Jump()
 	move_and_slide()
+	dash()
 
 	
 		
@@ -189,6 +190,14 @@ func is_wall_left():
 	else:
 		can_walljump=false
 		return false
-
+		
+func dash():
+	if Input.is_action_just_pressed("shift"):
+		if direction_facing == -1:
+			velocity.x = 10000
+		if direction_facing == 1:
+			velocity.x= -10000
+		velocity.y =0
+		
 
 

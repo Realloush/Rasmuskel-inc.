@@ -27,7 +27,7 @@ wait_time = 0.09
 one_shot = true
 
 [node name="WallJump" type="Timer" parent="."]
-wait_time = 0.09
+wait_time = 0.05
 one_shot = true
 
 [node name="RayCast2D" type="RayCast2D" parent="."]
@@ -36,5 +36,8 @@ collision_mask = 65535
 
 [node name="RayCast2D2" type="RayCast2D" parent="."]
 target_position = Vector2(15, 0)
+
+[node name="DashTimer" type="Timer" parent="."]
+wait_time = 1.52
 
 [connection signal="timeout" from="WallJump" to="." method="_on_wall_jump_timeout"]
