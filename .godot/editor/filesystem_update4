@@ -1,4 +1,7 @@
-res://scenes/MainMenu.tscn
 res://scenes/player.tscn
-res://scenes/MainGame.tscn
 res://script/player.gd
+res://scenes/MainMenu.tscn
+res://scenes/MainGame.tscn
+res://script/Area2D.gd
+res://scenes/Killzone.tscn
+res://script/MainGame.gd
