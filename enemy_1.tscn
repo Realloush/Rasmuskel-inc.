@@ -1,0 +1,115 @@
+[gd_scene load_steps=13 format=3 uid="uid://by2di0e2j8w8c"]
+
+[ext_resource type="Texture2D" uid="uid://bjnmue21752p2" path="res://art/random/slime_green.png" id="1_cted4"]
+[ext_resource type="Script" path="res://enemy_1.gd" id="1_m8dae"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_d72hs"]
+atlas = ExtResource("1_cted4")
+region = Rect2(0, 24, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yecrb"]
+atlas = ExtResource("1_cted4")
+region = Rect2(24, 24, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_s1eho"]
+atlas = ExtResource("1_cted4")
+region = Rect2(48, 24, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_b5fcv"]
+atlas = ExtResource("1_cted4")
+region = Rect2(72, 24, 24, 24)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_66oko"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_d72hs")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yecrb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_s1eho")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_b5fcv")
+}],
+"loop": true,
+"name": &"IdleEnemy1",
+"speed": 8.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_nlu6u"]
+size = Vector2(54, 45)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_k0r5n"]
+size = Vector2(35, 39)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_weqrk"]
+bg_color = Color(1, 0.32113, 0.420957, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fof5h"]
+bg_color = Color(5.77569e-07, 0.726783, 0.147466, 1)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_o46yw"]
+size = Vector2(504, 28)
+
+[node name="Enemy1" type="CharacterBody2D" groups=["enemy"]]
+script = ExtResource("1_m8dae")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, -46)
+scale = Vector2(3.91667, 3.83333)
+sprite_frames = SubResource("SpriteFrames_66oko")
+animation = &"IdleEnemy1"
+autoplay = "IdleEnemy1"
+frame_progress = 0.787811
+
+[node name="Raycastleft" type="RayCast2D" parent="."]
+position = Vector2(0, -26)
+target_position = Vector2(-34, 0)
+collision_mask = 16
+
+[node name="Raycastright" type="RayCast2D" parent="."]
+position = Vector2(0, -26)
+target_position = Vector2(34, 0)
+collision_mask = 16
+
+[node name="Hurtbox" type="Area2D" parent="."]
+collision_layer = 128
+collision_mask = 128
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hurtbox"]
+position = Vector2(1, -24.5)
+shape = SubResource("RectangleShape2D_nlu6u")
+
+[node name="hitbox" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="hitbox"]
+position = Vector2(0.5, -23.5)
+shape = SubResource("RectangleShape2D_k0r5n")
+
+[node name="ProgressBar" type="ProgressBar" parent="."]
+offset_left = -61.0
+offset_top = -83.0
+offset_right = 65.0
+offset_bottom = -56.0
+theme_override_styles/background = SubResource("StyleBoxFlat_weqrk")
+theme_override_styles/fill = SubResource("StyleBoxFlat_fof5h")
+max_value = 300.0
+step = 1.0
+
+[node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
+debug_enabled = true
+
+[node name="Detection" type="Area2D" parent="."]
+collision_layer = 128
+collision_mask = 128
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Detection"]
+position = Vector2(-1, -25)
+shape = SubResource("RectangleShape2D_o46yw")
+
+[connection signal="body_entered" from="hitbox" to="." method="_on_hitbox_body_entered"]
+[connection signal="area_entered" from="Detection" to="." method="_on_detection_area_entered"]
+[connection signal="body_entered" from="Detection" to="." method="_on_detection_body_entered"]

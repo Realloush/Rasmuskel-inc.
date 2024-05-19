@@ -1,7 +1,12 @@
-Timer
 CollisionShape2D
 Area2D
+NavigationAgent2D
+ProgressBar
+Camera2D
+RayCast2D
 AnimatedSprite2D
+CharacterBody2D
+Timer
+CanvasLayer
 Sprite2D
 AnimationPlayer
-RayCast2D

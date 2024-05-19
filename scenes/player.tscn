@@ -1,7 +1,27 @@
-[gd_scene load_steps=27 format=3 uid="uid://l0fxfqthulja"]
+[gd_scene load_steps=43 format=3 uid="uid://l0fxfqthulja"]
 
 [ext_resource type="Script" path="res://script/player.gd" id="1_1ib87"]
 [ext_resource type="Texture2D" uid="uid://d0slaockqbr2e" path="res://art/random/knight.png" id="2_cl48x"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_s4ehw"]
+atlas = ExtResource("2_cl48x")
+region = Rect2(64, 192, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2p6h4"]
+atlas = ExtResource("2_cl48x")
+region = Rect2(0, 224, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ow0ht"]
+atlas = ExtResource("2_cl48x")
+region = Rect2(32, 224, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7ymy5"]
+atlas = ExtResource("2_cl48x")
+region = Rect2(64, 224, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bo6rc"]
+atlas = ExtResource("2_cl48x")
+region = Rect2(96, 224, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_3nxty"]
 atlas = ExtResource("2_cl48x")
@@ -19,9 +39,41 @@ region = Rect2(64, 0, 32, 32)
 atlas = ExtResource("2_cl48x")
 region = Rect2(96, 0, 32, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_yg126"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_mwe4m"]
+atlas = ExtResource("2_cl48x")
+region = Rect2(0, 192, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ifpj7"]
+atlas = ExtResource("2_cl48x")
+region = Rect2(0, 160, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mw30c"]
+atlas = ExtResource("2_cl48x")
+region = Rect2(32, 160, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_v2npy"]
 atlas = ExtResource("2_cl48x")
 region = Rect2(64, 160, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8nuqp"]
+atlas = ExtResource("2_cl48x")
+region = Rect2(96, 160, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_phf63"]
+atlas = ExtResource("2_cl48x")
+region = Rect2(128, 160, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gjxt7"]
+atlas = ExtResource("2_cl48x")
+region = Rect2(160, 160, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rguek"]
+atlas = ExtResource("2_cl48x")
+region = Rect2(192, 160, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fslyt"]
+atlas = ExtResource("2_cl48x")
+region = Rect2(224, 160, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ve3em"]
 atlas = ExtResource("2_cl48x")
@@ -90,6 +142,31 @@ region = Rect2(224, 96, 32, 32)
 [sub_resource type="SpriteFrames" id="SpriteFrames_iljcd"]
 animations = [{
 "frames": [{
+"duration": 5.0,
+"texture": SubResource("AtlasTexture_s4ehw")
+}],
+"loop": true,
+"name": &"attack",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2p6h4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ow0ht")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7ymy5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bo6rc")
+}],
+"loop": false,
+"name": &"die",
+"speed": 8.0
+}, {
+"frames": [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_3nxty")
 }, {
@@ -108,11 +185,40 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_yg126")
+"texture": SubResource("AtlasTexture_mwe4m")
 }],
 "loop": true,
 "name": &"jump",
-"speed": 5.0
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ifpj7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mw30c")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_v2npy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8nuqp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_phf63")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gjxt7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rguek")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fslyt")
+}],
+"loop": true,
+"name": &"roll",
+"speed": 10.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -174,16 +280,26 @@ animations = [{
 radius = 5.25
 height = 15.5
 
-[node name="player" type="CharacterBody2D"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_isqjq"]
+size = Vector2(24.8434, 26.6114)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_m6iat"]
+bg_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_p36f5"]
+bg_color = Color(0.898275, 2.59906e-06, 1.2514e-06, 1)
+
+[node name="player" type="CharacterBody2D" groups=["player"]]
 scale = Vector2(4, 4)
 disable_mode = 1
-collision_layer = 3
-collision_mask = 3
+collision_layer = 131
+collision_mask = 131
 script = ExtResource("1_1ib87")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_iljcd")
-animation = &"jump"
+animation = &"attack"
+autoplay = "idle"
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="AnimatedSprite2D"]
 root_node = NodePath("../..")
@@ -217,4 +333,41 @@ position = Vector2(0.25, 5.5)
 scale = Vector2(1, 8.25)
 target_position = Vector2(13, 0)
 
+[node name="Dash" type="Timer" parent="."]
+wait_time = 2.0
+
+[node name="Attack" type="Area2D" parent="."]
+collision_layer = 128
+collision_mask = 128
+
+[node name="AreaLeft" type="Area2D" parent="Attack"]
+
+[node name="Left" type="CollisionShape2D" parent="Attack/AreaLeft"]
+position = Vector2(-16.75, 5)
+scale = Vector2(0.966053, 0.338201)
+shape = SubResource("RectangleShape2D_isqjq")
+
+[node name="AreaRight" type="Area2D" parent="Attack"]
+position = Vector2(-1.90735e-06, 0)
+
+[node name="Right" type="CollisionShape2D" parent="Attack/AreaRight"]
+position = Vector2(18.75, 5)
+scale = Vector2(0.966053, 0.338201)
+shape = SubResource("RectangleShape2D_isqjq")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position_smoothing_speed = 1000.0
+
+[node name="ProgressBar" type="ProgressBar" parent="Camera2D"]
+offset_left = -231.75
+offset_top = -127.75
+offset_right = -105.75
+offset_bottom = -93.75
+scale = Vector2(1.23042, 0.551764)
+theme_override_styles/background = SubResource("StyleBoxFlat_m6iat")
+theme_override_styles/fill = SubResource("StyleBoxFlat_p36f5")
+max_value = 1000.0
+
 [connection signal="timeout" from="WallJump" to="." method="_on_wall_jump_timeout"]
+[connection signal="timeout" from="Dash" to="." method="_on_dash_timeout"]
+[connection signal="area_entered" from="Attack" to="." method="_on_attack_area_entered"]
