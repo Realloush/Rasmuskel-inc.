@@ -59,20 +59,25 @@ func move(delta):
 	
 func follow(delta):
 	direction = (target_position-global_position).normalized()
+	if direction.x > 0:
+		animated_sprite.flip_h = false
+	else:
+		animated_sprite.flip_h = true
+	if raycastleft.is_colliding() or raycastright.is_colliding():
+		target = null
+		state = MOVE
 		
 	position.x += direction.x * speed * delta
 
 
 func death():
 	queue_free()
-		
 
 func damage_taken(hit):
 	
 
 	if hit < currenthealth:
 		currenthealth -= hit
-		print(currenthealth)
 	else: 
 		currenthealth = 0
 	if currenthealth == 0:

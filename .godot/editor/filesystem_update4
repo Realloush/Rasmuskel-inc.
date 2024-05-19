@@ -6,4 +6,3 @@ res://enemy_1.tscn
 res://scenes/MainGame.tscn
 res://scenes/Killzone.tscn
 res://enemy_1.gd
-res://script/MainGame.gd

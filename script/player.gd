@@ -309,7 +309,6 @@ func death():
 
 func _on_dash_timeout():
 	canDash = true
-	print(canDash)
 
 func damage_taken(damage):
 	if not dashing:
