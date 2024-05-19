@@ -39,6 +39,8 @@ func _physics_process(delta):
 		state = FOLLOW
 		
 		target_position = target.global_position
+	if raycastright.is_colliding() == true or raycastleft.is_colliding() == true:
+		state = MOVE
 	
 	$ProgressBar.value = currenthealth
 	
@@ -58,10 +60,15 @@ func move(delta):
 	
 	
 func follow(delta):
-	direction = (target_position-global_position).normalized()
+	
 		
-	position.x += direction.x * speed * delta
-
+	direction = (target_position-global_position).normalized()
+	if raycastright.is_colliding() == false and raycastleft.is_colliding() == false:	
+		position.x += direction.x * speed * delta
+	else:
+		target = null
+	
+		
 
 func death():
 	queue_free()
